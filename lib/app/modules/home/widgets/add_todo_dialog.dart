@@ -23,7 +23,7 @@ class AddDialog extends StatelessWidget {
                   IconButton(
                     onPressed: () {
                       Get.back();
-                      controller.taskTypeController.dispose();
+                      controller.taskTypeController.clear();
                       controller.changeTask(null);
                     },
                     icon: const Icon(
