@@ -14,6 +14,7 @@ class HomeController extends GetxController {
   final deleting = false.obs;
   final taskTypeController = TextEditingController();
   final task = Rx<Task?>(null);
+  final tabIndex = 0.obs;
 
   //Done Todos
   final doneTodos = <dynamic>[].obs;
@@ -148,6 +149,33 @@ class HomeController extends GetxController {
     for (int i = 0; i < task.todos!.length; i++) {
       if (task.todos![i]['done']) {
         res += 1;
+      }
+    }
+    return res;
+  }
+
+  ///Change Tab Index
+  void changeTabIndex(int index) {
+    tabIndex.value = index;
+  }
+
+  ///Get total tasks
+  int getTotalTask() {
+    int res = 0;
+    for (int i = 0; i < tasks.length; i++) {
+      if (tasks[i].todos != null && tasks[i].todos!.isNotEmpty) {
+        res += tasks[i].todos!.length;
+      }
+    }
+    return res;
+  }
+
+  ///Get total completed tasks
+  int getTotalDoneTask() {
+    int res = 0;
+    for (int i = 0; i < tasks.length; i++) {
+      if (tasks[i].todos != null && tasks[i].todos!.isNotEmpty) {
+        res += getDoneTodos(tasks[i]);
       }
     }
     return res;
