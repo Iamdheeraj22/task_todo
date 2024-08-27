@@ -129,4 +129,27 @@ class HomeController extends GetxController {
     doingTodos.refresh();
     doneTodos.refresh();
   }
+
+  ///Remove done task from the list
+  void removeDoneTask(String title) {
+    int index = doneTodos.indexWhere((e) => e['title'] == title);
+    doneTodos.removeAt(index);
+    doneTodos.refresh();
+  }
+
+  ///Check if the task has no to-do item
+  bool isTodoEmpty(Task task) {
+    return task.todos == null || task.todos!.isEmpty;
+  }
+
+  ///Get the number of completed to-do items
+  int getDoneTodos(Task task) {
+    int res = 0;
+    for (int i = 0; i < task.todos!.length; i++) {
+      if (task.todos![i]['done']) {
+        res += 1;
+      }
+    }
+    return res;
+  }
 }
