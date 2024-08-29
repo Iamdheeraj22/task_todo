@@ -16,6 +16,9 @@ class HomeController extends GetxController {
   final task = Rx<Task?>(null);
   final tabIndex = 0.obs;
 
+  //Task tab selection
+  final taskTabSelection = 1.obs;
+
   //Done Todos
   final doneTodos = <dynamic>[].obs;
 
@@ -179,5 +182,10 @@ class HomeController extends GetxController {
       }
     }
     return res;
+  }
+
+  ///change task tab selection
+  void changeTaskTabSelection(int index) {
+    taskTabSelection.value = index;
   }
 }
