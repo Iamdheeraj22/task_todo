@@ -83,12 +83,12 @@ class ReportDetailsPage extends StatelessWidget {
                         width: 150,
                         selectedStepSize: 22,
                         roundedCap: (_, __) => true,
-                        removeRoundedCapExtraAngle: true,
+                        //  removeRoundedCapExtraAngle: true,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              '${createdTasks == 0 ? 0 : percentage} %',
+                              '${(createdTasks == 0 ? 0 : percentage).roundToDouble()} %',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20.0.sp),
