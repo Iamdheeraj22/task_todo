@@ -15,6 +15,7 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Obx(
         () => IndexedStack(index: controller.tabIndex.value, children: [
           SafeArea(
@@ -22,7 +23,7 @@ class HomePage extends GetView<HomeController> {
               padding: EdgeInsets.all(4.0.wp),
               children: [
                 Text(
-                  'My List',
+                  'Task Todo',
                   style: TextStyle(
                     fontSize: 24.0.sp,
                     fontWeight: FontWeight.bold,
