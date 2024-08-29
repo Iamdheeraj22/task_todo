@@ -20,16 +20,6 @@ class DoneTodoListView extends StatelessWidget {
                   shrinkWrap: true,
                   physics: const ClampingScrollPhysics(),
                   children: [
-                    Text(
-                      'Completed(${ctrl.doneTodos.length})',
-                      style: TextStyle(
-                        fontSize: 14.0.sp,
-                        color: Colors.grey,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 5.0,
-                    ),
                     ...ctrl.doneTodos
                         .map((e) => Dismissible(
                               direction: DismissDirection.endToStart,
